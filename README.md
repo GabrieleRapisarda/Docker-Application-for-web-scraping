@@ -1,6 +1,6 @@
 # ProgettoDSBD_RapisardaGabriele-SambataroMario
 
-Lo sviluppo dell’applicazione è avvenuto sfruttando le funzionalità fornite dall’ambiente Docker per creare un applicativo in grado di gestire diversi  microserviz
+Lo sviluppo dell’applicazione è avvenuto sfruttando le funzionalità fornite dall’ambiente Docker per creare un applicativo in grado di gestire diversi  microservizi
 di elaborare  dati provenienti da un server Prometheus.
 In particolare, sono stati implementati i seguenti container:
 •	MySQL(db): questo container mantiene una distribuzione MySQL, attualmente nella versione 8.0.32. 
