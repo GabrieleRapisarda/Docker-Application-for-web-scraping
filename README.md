@@ -17,7 +17,7 @@ GUIDA all'avvio dell'applicazione:
 - [nota] ETL data pipeline ha attualmente settati come parametro di start_time[10m,15m,20m] per un test rapido dell'applicativo, se si vuole eseguire per [1h,3h,12h] è necessario cambiare questi dati sia dal codice di /etl_data_pipeline/main.py e /sla_manager/main.py
 - una volta completata l'elaborazione dell'ETL i dati verranno inviati e salvati nel db attraverso il data_storage
 - sarà dunque possibile andare a visualizzare i valori riguandanti metriche e metadati attraverso le API fornite dal data_retrieval
-- Per quanto riguarda invece le prediction sarà necessario inviare una POST al seguente indirizzo: " 127.0.0.1:5003/SLA " (la procedura per eseguire questa operazione è possibile visualizzarla all'indirizzo " 127.0.0.1:5003/ ")
+- Per quanto riguarda invece le prediction sarà necessario inviare una POST al seguente indirizzo: " 127.0.0.1:5003/SLA " (la procedura per eseguire questa operazione è possibile visualizzarla all'indirizzo " 127.0.0.1:5003")
 
 
 
