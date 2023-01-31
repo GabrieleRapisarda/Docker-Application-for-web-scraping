@@ -3,8 +3,9 @@
 Lo sviluppo dell’applicazione è avvenuto sfruttando le funzionalità fornite dall’ambiente Docker per creare un applicativo in grado di gestire diversi  microserviz
 di elaborare  dati provenienti da un server Prometheus.
 In particolare, sono stati implementati i seguenti container:
-•	MySQL(db): questo container mantiene una distribuzione MySQL, attualmente nella versione 8.0.32. Per fare in modo che i dati vengano memorizzati in maniera 
-persistente (così da evitare che vadano perduti a seguito di aggiornamenti o modifiche al codice).
+•	MySQL(db): questo container mantiene una distribuzione MySQL, attualmente nella versione 8.0.32. 
+Per fare in modo che i dati vengano memorizzati in maniera persistente (così da evitare che vadano perduti a 
+seguito di aggiornamenti o modifiche al codice).
 •	Zoo e Kafka: i due container conterranno i rispettivi servizi necessari ad implementare il messaging asincrono tipico della piattaforma Apache Kafka.
 •	Init-Kafka: container che permette di inizializzare il topic utilizzato per implementare la comunicazione asincrona.
 •	ETL data pipeline: come da definizione questo microservizio prevede una serie di step di processamento di dati provenienti da una specificata applicazione, nel caso 
