@@ -1,23 +1,21 @@
 # ProgettoDSBD_RapisardaGabriele-SambataroMario
 
-Lo sviluppo dell’applicazione è avvenuto sfruttando le funzionalità fornite dall’ambiente Docker per creare un applicativo in grado di gestire diversi  microservizi
-di elaborare  dati provenienti da un server Prometheus.
-In particolare, sono stati implementati i seguenti container:
-•	MySQL(db): questo container mantiene una distribuzione MySQL, attualmente nella versione 8.0.32. 
-Per fare in modo che i dati vengano memorizzati in maniera persistente (così da evitare che vadano perduti a 
-seguito di aggiornamenti o modifiche al codice).
-•	Zoo e Kafka: i due container conterranno i rispettivi servizi necessari ad implementare il messaging asincrono tipico della piattaforma Apache Kafka.
-•	Init-Kafka: container che permette di inizializzare il topic utilizzato per implementare la comunicazione asincrona.
-•	ETL data pipeline: come da definizione questo microservizio prevede una serie di step di processamento di dati provenienti da una specificata applicazione, nel caso 
+Lo sviluppo dell'applicazione è avvenuto sfruttando le funzionalità fornite dall'ambiente docker al fine di creare un applicativo in grado di gestire diversi microservizi.
+In particolare sono stati implementati i seguenti container:
+- MySQL(db): questo container mantiene una distribuzione MySql alla versione 8.0.32, per memorizzare i dati in modo persistente.
+- Zoo e Kafka: i due container conterranno i rispettivi servizi necessari ad implementare il messaging asincrono tipico della piattaforma Apache Kafka.
+- Init-Kafka: container che permette di inizializzare il topic utilizzato per implementare la comunicazione asincrona.
+- ETL data pipeline: come da definizione questo microservizio prevede una serie di step di processamento di dati provenienti da una specificata applicazione, nel caso 
 in esame si è utilizzata come sorgente il seguente server Prometheus http://15.160.61.227:29090/". Verranno valutate un set di 5 metriche negli intervalli di tempo di 
 1h,3h e 12h.
-•	Data Storage: microservizio che tramite Kafka preleva i dati inviati sullo specifico topic, e li inserisce nelle apposite tabelle del DB “DataStorage” creato tramite 
+- Data Storage: microservizio che tramite Kafka preleva i dati inviati sullo specifico topic, e li inserisce nelle apposite tabelle del DB “DataStorage” creato tramite 
 il container mysql.
-•	Data Retrieval: microservizio che offre un interfaccia REST API in grado di effettuare QUERY sul DB sopracitato e restituire attraverso delle GET le informazioni 
+- Data Retrieval: microservizio che offre un interfaccia REST API in grado di effettuare QUERY sul DB sopracitato e restituire attraverso delle GET le informazioni 
 precedentemente processate dall’ ETL data pipeline e salvate tramite l’apposito microservizio.
-•	SLA Manager: microservizio che permette di definire uno SLA set composto da 5 metriche(tali metriche vengono ricavate tramite una POST API effettuata sfruttando 
+- SLA Manager: microservizio che permette di definire uno SLA set composto da 5 metriche(tali metriche vengono ricavate tramite una POST API effettuata sfruttando 
 l’enstensione TALEND API TESTER), che restituisce attraverso delle GET il numero di violazioni passate e previste nei prossimi 10m(numero di volte che il parametro 
 sotto esame sfora un range di valori inviato al microservizio tramite la sopracitata POST API).
+
 
 GUIDA all'avvio dell'applicazione:
 
@@ -33,15 +31,15 @@ necessario cambiare questi dati sia dal codice di /etl_data_pipeline/main.py e /
 
 
 #SLA GET
-GET -> http://localhost:5003  
-GET -> http://localhost:5003/check_json
-GET -> http://localhost:5003/prediction_json
+- GET -> http://localhost:5003  
+- GET -> http://localhost:5003/check_json
+- GET -> http://localhost:5003/prediction_json
 
 #SLA POST necessaria per caricare i dati relativi alle prediction sul db
-POST -> http://localhost:5003/SLA
+- POST -> http://localhost:5003/SLA
 
 #DATA_RETRIEVAL
 
-GET -> http://localhost:5002/metrics
-GET -> http://localhost:5002/metadata
-GET -> http://localhost:5002/predict
+- GET -> http://localhost:5002/metrics
+- GET -> http://localhost:5002/metadata
+- GET -> http://localhost:5002/predict
