@@ -1,4 +1,4 @@
-# ProgettoDSBD_RapisardaGabriele-SambataroMario
+# Progetto DISTRIBUTED SYSTEMS AND BIG DATA_RapisardaGabriele-SambataroMario
 
 Lo sviluppo dell'applicazione è avvenuto sfruttando le funzionalità fornite dall'ambiente docker al fine di creare un applicativo in grado di gestire diversi microservizi.
 In particolare sono stati implementati i seguenti container:
